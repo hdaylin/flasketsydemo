@@ -7,7 +7,29 @@
   <h1>Welcome!</h1>
   <p>This is a flask app</p>
   <p><a class="btn btn-primary btn-lg">Learn more</a></p>
-</div>
+  </div>
+  <br>
+  <div class= "center">
+      <div class="row">
+    {%for x in listings %}
+
+    <div class= "col-md-3">
+        <div class = "thumbnail">
+            <div class = "caption">
+
+               <h3><a href="{{ url_for('listing_show', listing_id=x.id) }}">{{ x.name }}</a></h3>
+                    <p>{{ x.description[:25] }}</p>
+                    <p>{{ x.price }}</p>
+
+
+            </div>
+        </div>
+     </div>
+    {% endfor %}
+      </div>
+      <br><br>
+  </div>
+
 {% endblock %}
 
 
